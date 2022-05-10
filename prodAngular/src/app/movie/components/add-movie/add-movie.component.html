@@ -1,0 +1,41 @@
+
+
+
+
+<nb-card >
+<nb-card-body>
+<form [formGroup]="formMovie" (ngSubmit)="submitForm()">
+    <p>Titre :</p>
+    <p><input nbInput type="text" formControlName="title"></p>
+    <p>Description : </p>
+    <p><input nbInput type="text" formControlName="description" ></p>
+    <p>Année de sortie</p>
+    <p><input nbInput type="date" formControlName="releaseYear"></p>
+    <p>Realisateur :</p>
+    <nb-select placeholder="Faite un choix dans la liste" size="small">
+        <nb-option-group *ngFor="let person of Allpersonne" >
+            <nb-option formControlName="realisatorID" [value]="person.id">{{person.lastName}}{{person.firstName}}</nb-option>
+        </nb-option-group>   
+    </nb-select>
+    <p>Scénariste</p>
+    <nb-select size="small">
+        <nb-option-group *ngFor="let person of Allpersonne">
+            <nb-option formControlName="scenaristID" [value]="person.id">{{person.lastName}}{{person.firstName}}</nb-option>
+        </nb-option-group>   
+    </nb-select>
+
+    <p>Acteur</p>
+    <nb-select multiple size="small">
+        <nb-option-group *ngFor="let person of Allpersonne">
+            <nb-option formControlName="actor" [value]="person.id">{{person.lastName}}{{person.firstName}}</nb-option>
+        </nb-option-group>   
+    </nb-select>
+    <p><button nbButton>Enregistrer</button></p>
+    
+</form>
+
+</nb-card-body> 
+
+</nb-card>
+
+    

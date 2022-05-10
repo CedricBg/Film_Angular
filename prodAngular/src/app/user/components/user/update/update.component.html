@@ -1,0 +1,9 @@
+<form *ngIf="isConnected" [formGroup]="formUpdate" (ngSubmit)="Update()">
+    <input type="hidden" formControlName="id">
+    <p>Prénom :                         <input formControlName="firstName"  type="text" nbInput shape="semi-round"></p>
+    <p>Nom de famille :                 <input formControlName="lastName"   type="text" nbInput shape="semi-round"></p>
+    <p>Email :                          <input formControlName="email"      type="text" nbInput shape="semi-round"></p>
+    <p>Date de naissance :              <input formControlName="birthDate"  type="date"  nbInput shape="semi-round" ></p>
+    <p>password :                       <input formControlName="password"   type="password" nbInput shape="semi-round" ></p>
+    <p><button nbButton>Envoyer</button></p>
+</form>

@@ -1,0 +1,30 @@
+
+<nb-card>
+    <nb-card-header>
+    <h2>{{ listFilm.title }}</h2>
+    <hr>
+    </nb-card-header>
+    <nb-card-body>
+    <ul>
+        <li>Date de sortie : {{listFilm.releaseYear}}</li>
+        <li>Réalisteur : {{ listFilm.realisator.lastName }} {{ listFilm.realisator.firstName }}</li>
+        <li>Scénariste : {{ listFilm.scenarist.lastName }} {{ listFilm.scenarist.firstName }}</li>
+        <li>
+            Acteur(s) :
+            <ul *ngFor="let actor of listFilm.actors">
+                <li>{{actor.lastName}} {{actor.firstName}} dans le rôle de {{actor.role}}</li>
+            </ul>
+        </li>
+        <li>Commentaire :
+            <ul *ngFor="let comment of commentair">
+                <li>{{comment.content}}</li>
+            </ul>
+        </li>
+        
+    </ul>
+
+    
+    
+</nb-card-body>
+<button nbButton (click)="close()">Retour</button>
+</nb-card>

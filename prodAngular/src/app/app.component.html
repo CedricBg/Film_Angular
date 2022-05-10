@@ -1,15 +1,19 @@
 <nb-layout>
 
   <nb-layout-header fixed>
-  <!-- Insert header here -->
+ <app-connection></app-connection>
   </nb-layout-header>
 
+  <nb-sidebar>
+    <app-nav></app-nav>
+  </nb-sidebar>
+  
   <nb-layout-column>
-    
+    <router-outlet></router-outlet>
   </nb-layout-column>
 
   <nb-layout-footer fixed>
-  <!-- Insert footer here -->
+  &copy; 2022
   </nb-layout-footer>
 
 </nb-layout>

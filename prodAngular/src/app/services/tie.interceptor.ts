@@ -13,7 +13,16 @@ export class TieInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    let token
-    return next.handle(request);
+    let token = localStorage.getItem('token')
+    if(token != '')
+    {
+      let clone = request.clone({
+        headers : request.headers.set('Authorization', 'Bearer '+token)
+      })
+      return next.handle(clone);
+    } 
+    else{
+      return next.handle(request);
+    }
   }
 }

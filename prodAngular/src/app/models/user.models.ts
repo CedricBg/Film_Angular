@@ -1,9 +1,11 @@
 export class User{
     id! : number
-    firstname! : string
+    email! : string
+    firstName! : string
     lastName! : string
     birthDate! : Date
-    isActive? : boolean
+    isActive! : boolean
     isAdmin! : boolean
-    token? : string
+    token! : string
 }
+

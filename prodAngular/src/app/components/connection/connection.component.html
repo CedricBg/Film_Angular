@@ -1,0 +1,10 @@
+<form *ngIf="!isConnected" [formGroup]="connectFormGroup" (ngSubmit)="login()">
+    <p><input nbInput type="email" formControlName="email">&nbsp;
+    <input nbInput type="password" formControlName="password">&nbsp;
+    <button nbButton [disabled]="connectFormGroup.invalid">Connexion</button></p>
+</form>
+    
+<p *ngIf="isConnected">
+<button nbButton (click)="Logout()">Déconnexion</button> &nbsp;
+Bonjour {{currentUser.firstName}} <a routerLink="user/update/{{currentUser.id}}">Profil</a>
+</p> 

@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { compileNgModuleDeclarationExpression } from '@angular/compiler/src/render3/r3_module_compiler';
 import { Injectable, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { loginInfo } from '../models/loginInfo.model';
 import { User } from '../models/user.models';
 
@@ -9,35 +11,59 @@ import { User } from '../models/user.models';
   providedIn: 'root'
 })
 export class AuthService{
-
-  _IsConnected! : boolean
+ 
   currentUser! : User;
+  
+  get IsConnected() : boolean {
+    return localStorage.getItem('token') != null ? true : false
+  }
 
-  get IsConnected() : boolean{
-    return localStorage.getItem('IsConnected') == 'true' ? true : false
+  get IsAdmin() : boolean{
+    return localStorage.getItem('IsAdmin') == 'true' ? true : false
   }
   
   isConnectedSubject : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.IsConnected)
-  currentUserSubject : Subject<User> = new Subject<User>()
+  isAdminSubject : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.IsAdmin)
+  currentUserSubject : BehaviorSubject<User> = new BehaviorSubject<User>(this.currentUser)
 
+  EmittionAdmin(){
+    this.isAdminSubject.next(this.IsAdmin)
+  }
+
+  EmittionUser(){
+    this.currentUserSubject.next(this.currentUser)
+  }
  
   EmittionConnection(){
     this.isConnectedSubject.next(this.IsConnected)
   }
 
- baseAdresse : string = "http://localhost:53448/api/"
-
 constructor(
-  private _client : HttpClient
+  private _client : HttpClient, private _router : Router
 ) { }
 
 Login(user : loginInfo){
-
-   this._client.post<any>(this.baseAdresse+ 'Auth/auth', user).subscribe({
-    next : (data : any) => {
-      this._IsConnected = true, 
-      this.EmittionConnection(),
-      localStorage.setItem('isConnected', this._IsConnected.toString())
+  
+   this._client.post<User>(environment.baseAdres+ 'Auth/auth', user).subscribe({
+    next : (data : User) => {
+      
+      this.currentUser = data
+      
+      if(this.currentUser.isActive == true)
+      {
+        
+        localStorage.setItem('id',        this.currentUser.id.toString())
+        localStorage.setItem('token',     this.currentUser.token)
+        localStorage.setItem('lastName',  this.currentUser.lastName)
+        localStorage.setItem('firstName', this.currentUser.firstName)
+        localStorage.setItem('birthDate', this.currentUser.birthDate.toString())
+        localStorage.setItem('IsAdmin',   this.currentUser.isAdmin.toString())
+        localStorage.setItem('isConnected', this.IsConnected.toString())
+        this.EmittionConnection()
+        this.EmittionUser()
+        this.EmittionAdmin()
+        
+      }
     },
     error :(error) => {console.log(error.message)}
   })
@@ -45,11 +71,12 @@ Login(user : loginInfo){
 }
 
 Logout(){
-  this._IsConnected = false
-  localStorage.removeItem('isConnected'),
-  this.EmittionConnection()
-}
- 
+  this._router.navigate(['./']) 
+  localStorage.clear()
+  this.EmittionConnection() 
+  this.EmittionUser()
+  this.EmittionAdmin()
+  }
 }
 
 
