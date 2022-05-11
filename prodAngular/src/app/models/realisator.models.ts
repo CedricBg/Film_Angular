@@ -1,5 +1,5 @@
-export class realisator{
-    id! : number
-    lastName? : string
-    firstName? : string
+export interface realisator{
+    id : number
+    lastName : string
+    firstName : string
 }

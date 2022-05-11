@@ -1,5 +1,5 @@
-export class scenarist{
-    id? : number
-    lastName? : string
-    firstName? : string
+export interface scenarist{
+    id : number
+    lastName : string
+    firstName : string
 }

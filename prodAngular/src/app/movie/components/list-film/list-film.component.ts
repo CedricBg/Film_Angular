@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  NbDialogService, NbWindowService } from '@nebular/theme';
+import { Acteur } from 'src/app/models/Acteur.models';
 import { AllMovies } from 'src/app/models/AllMovies.models';import { Commentaire } from 'src/app/models/Commentaire.models';
 import { Film } from 'src/app/models/Film.models';
 import { ComnentService } from 'src/app/services/Commentaire.service';
@@ -18,6 +19,7 @@ export class ListFilmComponent implements OnInit {
   ListFilm! : AllMovies[]
   film! : Film
   commen! : Commentaire
+  actor : Acteur
   constructor(
     private _serviceFilm : FilmService,private _windowService: NbWindowService, private _dialog : NbDialogService,
      private _commentService : ComnentService, private _serviceUser : UserService

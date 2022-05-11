@@ -1,6 +1,6 @@
-export class actors{
-    id! : number
-    role? : string
-    lastName? : string
-    firstName? : string
+export interface actors{
+    id : number
+    role : string
+    lastName : string
+    firstName : string
 }

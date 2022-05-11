@@ -1,5 +1,5 @@
-export class Person{
-    id! : number
-    lastName? : string
-    firstName? : string
+export interface Person{
+    id : number
+    lastName : string
+    firstName : string
 }
