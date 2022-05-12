@@ -1,21 +1,21 @@
-<div class="card-row">
-<nb-card size="giant">
-<nb-card-body>
+<div class="contenant">
+
 <form [formGroup]="formMovie" (ngSubmit)="submitForm()">
+    <h4>Ajouter un film</h4><br>
     <p>Titre :</p>
-    <p><input nbInput type="text" formControlName="title"></p>
+    <p><input nbInput type="text" formControlName="title" shape="semi-round"></p>
     <p>Description : </p>
-    <p><input nbInput type="text" formControlName="description" ></p>
+    <p><input nbInput type="text" formControlName="description" shape="semi-round"></p>
     <p>Année de sortie</p>
-    <p><input nbInput type="number" formControlName="releaseYear"></p>
+    <p><input nbInput type="number" formControlName="releaseYear" shape="semi-round"></p>
     <p>Realisateur :</p>
-    <nb-select formControlName="realisatorID" placeholder="Faite un choix dans la liste" >
+    <nb-select formControlName="realisatorID" shape="semi-round" placeholder="Faite un choix dans la liste" >
         <nb-option-group *ngFor="let person of Allpersonne" >
             <nb-option  [value]="person.id">{{person.lastName}} {{person.firstName}}</nb-option>
         </nb-option-group>   
     </nb-select>
     <p>Scénariste</p>
-    <nb-select formControlName="scenaristID" >
+    <nb-select formControlName="scenaristID" shape="semi-round" placeholder="Faite un choix dans la liste">
         <nb-option-group *ngFor="let person of Allpersonne">
             <nb-option  [value]="person.id">{{person.lastName}} {{person.firstName}}</nb-option>
         </nb-option-group>   
@@ -24,23 +24,20 @@
         <p><button type="button" nbButton (click)="addActor()">Ajouter un acteur</button></p>
         <div *ngFor="let item of getRole().controls; let i = index;" [formGroupName]="i" >
             Acteur nr {{i + 1}} <br>
-        <p><nb-select formControlName="personId" >
+        <p><nb-select formControlName="personId" shape="semi-round" >
             <nb-option-group *ngFor="let person of Allpersonne">
-                <nb-option  [value]="person.id">{{person.lastName}} {{person.firstName}}</nb-option>
+                <nb-option  [value]="person.id" >{{person.lastName}} {{person.firstName}} </nb-option>
             </nb-option-group>   
         </nb-select>
     </p>
-        <p> Rôle de acteur nr <br><input formControlName="role" nbInput type="text"></p>
-        
+        <p> Rôle de acteur nr <br><input formControlName="role" nbInput type="text" shape="semi-round"></p>
+         
     </div> 
     
     <p><button nbButton>Enregistrer</button></p>
     </div>
 </form>
 
-</nb-card-body> 
-
-</nb-card>
 </div>
 
 

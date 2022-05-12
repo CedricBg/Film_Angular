@@ -17,6 +17,10 @@ export class PersonService {
 
   Insert(person : PersonAdd){
     console.log(person)
-   this._httpClient.post(environment.baseAdres+ 'Person' , person).subscribe()
+   return this._httpClient.post<string>(environment.baseAdres+ 'Person' , person).subscribe({
+     next : (data : string)=>{
+        console.log(data)
+     }
+   })
   }
 }

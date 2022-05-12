@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MovieRoutingModule } from './movie-routing.module';
 import { ListFilmComponent } from './components/list-film/list-film.component';
 import { config } from 'rxjs';
-import { NbButtonModule, NbCardModule, NbDialogModule, NbIconModule, NbInputModule, NbOptionModule, NbSelectModule, NbWindowModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbDialogModule, NbIconModule, NbInputModule, NbOptionModule, NbSelectModule, NbToastrModule, NbWindowModule } from '@nebular/theme';
 import { DetailFilmComponent } from './components/detail-film/detail-film.component';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +32,7 @@ import { PersonComponent } from './components/person/person.component';
     NbSelectModule,
     NbOptionModule,
     NbIconModule,
+    NbToastrModule.forRoot(),
   ]
 })
 export class MovieModule { }

@@ -33,7 +33,7 @@ export class AddMovieComponent implements OnInit {
     })
   }
 
-
+ 
   getRole(){
     return this.formMovie.get('casting') as FormArray
   }
