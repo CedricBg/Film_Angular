@@ -8,13 +8,15 @@ import { NbButtonModule, NbCardModule, NbDialogModule, NbInputModule, NbOptionMo
 import { DetailFilmComponent } from './components/detail-film/detail-film.component';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommentComponent } from './components/comment/comment.component';
 
 
 @NgModule({
   declarations: [
     ListFilmComponent,
     DetailFilmComponent,
-    AddMovieComponent
+    AddMovieComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule,

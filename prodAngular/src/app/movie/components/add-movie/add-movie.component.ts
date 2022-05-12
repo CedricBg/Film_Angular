@@ -18,6 +18,8 @@ export class AddMovieComponent implements OnInit {
   formMovie! : FormGroup
   Allpersonne! : Person[]
   listActor! : Acteur[]
+  idfilm! : number
+  actor : Acteur
   
   ngOnInit(): void {
     this.getAllPerson()
@@ -27,34 +29,28 @@ export class AddMovieComponent implements OnInit {
       releaseYear : ['',Validators.required],
       realisatorID : ['',Validators.required],
       scenaristID : ['',Validators.required],
-      //role : this._builder.array([]),
-      //actor : this._builder.array([])
       casting : this._builder.array([])
-      
     })
   }
 
-  getActor() : FormArray{
 
-    return this.formMovie.get('actor') as FormArray
-    
-  }
   getRole(){
     return this.formMovie.get('casting') as FormArray
   }
 
   addActor() {  
     this.getRole().push(this._builder.group({
-      actor : [],
+      personId : [],
       role : []
     }))
-    
+     
   }
-
+ 
   submitForm(){
-    console.log(this.formMovie.value)
-    // this.filmInsert = this.formMovie.value
-    // this._MovieService.insertMovie(this.filmInsert)
+
+    this.filmInsert = this.formMovie.value
+    this.listActor = this.formMovie.value.casting
+    this._MovieService.insertMovie(this.filmInsert,this.listActor)
   }
 
 

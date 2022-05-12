@@ -19,7 +19,7 @@ export class ListFilmComponent implements OnInit {
   ListFilm! : AllMovies[]
   film! : Film
   commen! : Commentaire
-  actor : Acteur
+ 
   constructor(
     private _serviceFilm : FilmService,private _windowService: NbWindowService, private _dialog : NbDialogService,
      private _commentService : ComnentService, private _serviceUser : UserService
@@ -27,14 +27,11 @@ export class ListFilmComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
   getComment(id : number){
     
     this._commentService.getOne(id).subscribe({
       next : (data : Commentaire )=>{
         this.commen = data
-        console.log(this.commen)
         this.details(id)
       }
     })
@@ -58,10 +55,6 @@ details(id : number, hasBackdrop : boolean = false){
     })
   }
 
-  
-  insertMovie(){
-      this._serviceFilm.insertMovie(this.film)
-  }
 
 }
 

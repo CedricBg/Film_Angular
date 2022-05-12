@@ -12,31 +12,35 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./connection.component.scss']
 })
 export class ConnectionComponent implements OnInit {
-  
+   
   currentUser! : User
   isConnected! : boolean
   connectFormGroup! : FormGroup
   constructor(private _serviceAuth : AuthService, private _builder : FormBuilder, private _serviceUser : UserService) { }
   
   ngOnInit(): void {
+    this.isConnected = this._serviceAuth.IsConnected
     this.connectFormGroup = this._builder.group({
       email : ['', [Validators.required,Validators.email]],
       password : ['',Validators.required]
      })
 
      this._serviceAuth.isConnectedSubject.subscribe({
-       next : (data : boolean) => {this.isConnected = data}
+       next : (data : boolean) => {this.isConnected = data
+        }
      })
      this._serviceAuth.currentUserSubject.subscribe({
-       next : (data : User) => { this.currentUser = data}
+       next : (data : User) => { this.currentUser = data
+        console.log(data)
+      }
      })
-     this._serviceAuth.EmittionUser()
-     this._serviceAuth.EmittionConnection()
+     
+     
   }
   
   login(){
     this._serviceAuth.Login(this.connectFormGroup.value)
-  }
+  } 
 
   Logout(){
     this._serviceAuth.Logout()

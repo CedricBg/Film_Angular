@@ -1,7 +1,7 @@
 export interface Commentaire{
     id : number
     content : string
-    postDate : string
+    postDate : Date
     userID : number
     movieID : number
 }

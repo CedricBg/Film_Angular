@@ -7,13 +7,20 @@ import { environment } from 'src/environments/environment';
 import { loginInfo } from '../models/loginInfo.model';
 import { User } from '../models/user.models';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService{
  
-  currentUser! : User;
-  
+  _currentUser! : User
+  get currentUser() : User {
+    return this._currentUser ?? JSON.parse(localStorage.getItem('user'))
+  }
+  set currentUser(value : User) {
+    this._currentUser = value
+  }
+   
   get IsConnected() : boolean {
     return localStorage.getItem('token') != null ? true : false
   }
@@ -51,7 +58,7 @@ Login(user : loginInfo){
       
       if(this.currentUser.isActive == true)
       {
-        
+        localStorage.setItem('user', JSON.stringify(data))
         localStorage.setItem('id',        this.currentUser.id.toString())
         localStorage.setItem('token',     this.currentUser.token)
         localStorage.setItem('lastName',  this.currentUser.lastName)

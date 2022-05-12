@@ -1,8 +1,5 @@
-
-
-
-
-<nb-card >
+<div class="card-row">
+<nb-card size="giant">
 <nb-card-body>
 <form [formGroup]="formMovie" (ngSubmit)="submitForm()">
     <p>Titre :</p>
@@ -27,7 +24,7 @@
         <p><button type="button" nbButton (click)="addActor()">Ajouter un acteur</button></p>
         <div *ngFor="let item of getRole().controls; let i = index;" [formGroupName]="i" >
             Acteur nr {{i + 1}} <br>
-        <p><nb-select formControlName="actor" >
+        <p><nb-select formControlName="personId" >
             <nb-option-group *ngFor="let person of Allpersonne">
                 <nb-option  [value]="person.id">{{person.lastName}} {{person.firstName}}</nb-option>
             </nb-option-group>   
@@ -44,5 +41,7 @@
 </nb-card-body> 
 
 </nb-card>
+</div>
+
 
     
