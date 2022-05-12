@@ -1,7 +1,12 @@
-<H3>Ajout d'une personne</H3>
+
+<div class="contenant">
+
 <form [formGroup]="personForm" (ngSubmit)="AddPerson()">
-    <p>Nom :<br><input nbInput formControlName="lastName"></p>
-    <p>Prénom :<br><input nbInput formControlName="firstName"></p>
+    <H3>Ajout d'une personne</H3><br>
+    <p>Nom :<br><input nbInput formControlName="lastName" shape="semi-round"></p>
+    <p>Prénom :<br><input nbInput formControlName="firstName" shape="semi-round"></p>
     
     <button nbButton>Entregistrer</button>
 </form>
+</div>
+ 
