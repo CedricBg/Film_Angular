@@ -1,0 +1,6 @@
+<H3>Ajout d'une personne</H3>
+<form [formGroup]="personForm" (ngSubmit)="AddPerson()">
+    <p><input nbInput formControlName="firstName"></p>
+    <p><input nbInput formControlName="lastName"></p>
+    <button nbButton>Entregistrer</button>
+</form>

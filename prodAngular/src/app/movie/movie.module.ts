@@ -9,6 +9,7 @@ import { DetailFilmComponent } from './components/detail-film/detail-film.compon
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommentComponent } from './components/comment/comment.component';
+import { PersonComponent } from './components/person/person.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CommentComponent } from './components/comment/comment.component';
     ListFilmComponent,
     DetailFilmComponent,
     AddMovieComponent,
-    CommentComponent
+    CommentComponent,
+    PersonComponent
   ],
   imports: [
     CommonModule,
