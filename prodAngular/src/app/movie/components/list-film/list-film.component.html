@@ -1,6 +1,6 @@
 
 <button nbButton routerLink="/movie/AddMovie" >Ajouter un film</button>
 <button nbButton routerLink="/movie/Person" >Ajouter une personne</button>
-<ul *ngFor="let item of ListFilm ; let i = index">
+<ol *ngFor="let item of ListFilm ; let i = index">
 <li><a (click)="getComment(i)"> {{item.title}}</a></li>
-</ul>
+</ol>

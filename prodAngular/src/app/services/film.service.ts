@@ -4,7 +4,6 @@ import { environment } from 'src/environments/environment';
 import { Acteur } from '../models/Acteur.models';
 import { AllMovies } from '../models/AllMovies.models';
 import { Film } from '../models/Film.models';
-import { forceCast } from '../tools/forceCast.models'
 
 @Injectable({
   providedIn: 'root'

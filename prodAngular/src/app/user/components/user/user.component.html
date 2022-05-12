@@ -1,11 +1,10 @@
 <h2>Liste des utilisateurs</h2>
- <button  nbButton (click)="register()" >Enregistrez vous</button>
+ 
      <div class="listUser">
         <nb-accordion *ngFor="let user of listUsers">
             <nb-accordion-item>
              <nb-accordion-item-header>{{user.firstName}} {{user.lastName}}</nb-accordion-item-header>
              <nb-accordion-item-body>
-                 <p>Nr° de client : {{user.id}}</p>
                 <p>Email : {{user.email}} </p>
                 <p>Date de naissance : {{user.birthDate | date}}</p>
                 <p>Administrateur : <span *ngIf="user.isAdmin">Oui</span><span *ngIf="!user.isAdmin">Non</span></p>
@@ -14,3 +13,4 @@
             </nb-accordion-item>
            </nb-accordion>
         </div>
+        <button  nbButton (click)="register()" >Ajouter un utilisateur</button>

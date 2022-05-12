@@ -3,7 +3,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './components/user/user.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NbAccordionModule, NbAutocompleteModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbInputModule, NbListModule, NbUserModule } from '@nebular/theme';
+import { NbAccordionModule, NbAutocompleteModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbIconModule, NbInputModule, NbListModule, NbUserModule } from '@nebular/theme';
 import { RegisterComponent } from './components/user/register/register.component';
 import { UpdateComponent } from './components/user/update/update.component';
 
@@ -27,6 +27,7 @@ import { UpdateComponent } from './components/user/update/update.component';
     NbAutocompleteModule,
     NbAccordionModule,
     NbCheckboxModule,
+    NbIconModule,
   ]
 })
 export class UserModule { }

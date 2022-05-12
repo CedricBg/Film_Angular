@@ -1,10 +1,13 @@
-register
+<div class="contenant">
+
 <form [formGroup]="formRegister" (ngSubmit)="Insert()">
-    <p>Prénom :                         <input formControlName="firstName"  type="text" nbInput shape="semi-round"></p>
-    <p>Nom de famille :                 <input formControlName="lastName"   type="text" nbInput shape="semi-round"></p>
-    <p>Email :                          <input formControlName="email"      type="text" nbInput shape="semi-round"></p>
-    <p>Date de naissance :              <input formControlName="birthDate"  type="date"  nbInput shape="semi-round" ></p>
-    <p>password :                       <input formControlName="password"   type="password" nbInput shape="semi-round" ></p>
-    <p><button nbButton>Envoyer</button></p>
+    Enregistrement<br>
+                            <br><input formControlName="firstName" placeholder="Prénom"  type="text" nbInput shape="semi-round">
+                            <br><input formControlName="lastName" placeholder="Nom"  type="text" nbInput shape="semi-round">
+                            <br><input formControlName="email" placeholder="Email"     type="text" nbInput shape="semi-round">
+                            <br><input formControlName="birthDate"  title="Date de naissance"  type="date"  nbInput shape="semi-round" >
+                            <br><input formControlName="password" placeholder="Mot de passe"   type="password" nbInput shape="semi-round" >
+    <button nbButton>Envoyer</button>
 
 </form>
+</div>

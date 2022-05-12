@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbInputModule, NbButtonModule, NbCardModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbInputModule, NbButtonModule, NbCardModule, NbIconModule, NbFormFieldModule, NbListModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ConnectionComponent } from './components/connection/connection.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -31,7 +31,7 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NbThemeModule.forRoot({ name: 'corporate' }),
+    NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbEvaIconsModule,
     ReactiveFormsModule,
@@ -39,6 +39,10 @@ import { HomeComponent } from './components/home/home.component';
     NbInputModule,
     NbButtonModule,
     NbCardModule,
+    NbEvaIconsModule,
+    NbIconModule,
+    NbFormFieldModule,
+    NbListModule
   ],
   providers: [
     { provide : HTTP_INTERCEPTORS, useClass : TieInterceptor, multi : true}

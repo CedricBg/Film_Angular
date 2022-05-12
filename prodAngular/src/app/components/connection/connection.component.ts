@@ -31,7 +31,6 @@ export class ConnectionComponent implements OnInit {
      })
      this._serviceAuth.currentUserSubject.subscribe({
        next : (data : User) => { this.currentUser = data
-        console.log(data)
       }
      })
      

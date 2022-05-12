@@ -20,7 +20,7 @@ export class AuthService{
   set currentUser(value : User) {
     this._currentUser = value
   }
-   
+
   get IsConnected() : boolean {
     return localStorage.getItem('token') != null ? true : false
   }
@@ -28,7 +28,7 @@ export class AuthService{
   get IsAdmin() : boolean{
     return localStorage.getItem('IsAdmin') == 'true' ? true : false
   }
-  
+
   isConnectedSubject : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.IsConnected)
   isAdminSubject : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.IsAdmin)
   currentUserSubject : BehaviorSubject<User> = new BehaviorSubject<User>(this.currentUser)
@@ -40,7 +40,7 @@ export class AuthService{
   EmittionUser(){
     this.currentUserSubject.next(this.currentUser)
   }
- 
+
   EmittionConnection(){
     this.isConnectedSubject.next(this.IsConnected)
   }

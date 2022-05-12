@@ -1,5 +1,4 @@
-<ul>
-    <li *ngIf="isAdmin"><a routerLink="user">GestionUtilisateur</a></li>
-    <li *ngIf="isConnected"><a routerLink="movie/List">Gestion Film</a></li>
-</ul>
-
+<nb-list>
+    <nb-list-item *ngIf="isAdmin"><a routerLink="user">Gestion Utilisateur</a></nb-list-item>
+    <nb-list-item *ngIf="isConnected"><a routerLink="movie/List">Gestion Film</a></nb-list-item>
+ </nb-list>
